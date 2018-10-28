@@ -4,6 +4,9 @@
 composer-create-project: ## Run composer create projet
 	$(call docker-compose,exec --user www-data php bash -c "COMPOSER_PROCESS_TIMEOUT=3600 COMPOSER_MEMORY_LIMIT=-1 composer create-project sylius/sylius-standard apps/${SYLIUS_FOLDER}")
 
+composer-create-plugin: ## Run composer create plugin
+	$(call docker-compose,exec --user www-data php bash -c "COMPOSER_PROCESS_TIMEOUT=3600 COMPOSER_MEMORY_LIMIT=-1 composer create-project sylius/plugin-skeleton apps/${SYLIUS_FOLDER}")
+
 composer-install: ## Run composer install
 	$(call docker-compose,exec --user www-data php bash -c "cd apps/${SYLIUS_FOLDER}; COMPOSER_PROCESS_TIMEOUT=3600 COMPOSER_MEMORY_LIMIT=-1 composer install -o --prefer-source")
 

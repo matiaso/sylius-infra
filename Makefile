@@ -31,6 +31,11 @@ coffee: ## Launch it, and take coffee ☕️
 	${MAKE} apply-dist
 	${MAKE} SYMFONY_ENV=dev install
 
+plugin: ## Create a new plugin skeleton
+	${MAKE} infra-update
+	mkdir -p apps/${SYLIUS_FOLDER}
+	${MAKE} composer-create-plugin
+
 install: up clean-cache theme-install sylius-install ## Install the project (⚠ Reset database)
 infra-update: ## Update the Docker infrastructure
 	${MAKE} PULL_FROM=1 pull build up

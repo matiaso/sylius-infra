@@ -39,3 +39,9 @@ You should also:
 - Change the `infra/dev/php/files/vhost.conf` to define your own entry point.
 - Change the `infra/dev/docker-compose.yml` if you want to add some ports to `php` container.
 - Run `make build up` command to update the stack.
+
+## Create a new plugin skeleton
+
+```
+make SYLIUS_FOLDER=FooSyliusBarPlugin plugin
+```
